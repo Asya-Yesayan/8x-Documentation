@@ -34,3 +34,41 @@ var ds = new DataSource<SysDefDataRow, SysDefParameters>
 * Client - Api Client, որի օգնությամբ հարցումներ ենք ուղարկում սերվիս,
 * FirstFetchSize - տվյալների աղբյուրը բեռնվում է բլոկ-բլոկ։ Պարամետրը նկարագրում է առաջին բլոկով բեռնվող տողերի քանակը,
 * FetchSize - յուրաքանչյուր բլոկով բեռնվող տողերի քանակը(բացի առաջինից)։
+
+Ու տվյալների աղբյուրը կատարելու 2 տարբերակ ունենք՝ կարճ և երկար։
+
+* Տվյալների աղբյուրը կարճ եղանակով կատարելու համար անհրաժեշտ է DataSource<R,P> դասի instance-ի Execute մեթոդը,որին պարտադիր է փոխանցել տվյալների աղբյուրի պարամետրերը։
+
+``` C#
+var dsResult = ds.Execute(parameters);
+```
+Մեթոդը ունի հետևյալ signature-ը՝
+
+``` C#
+Execute(P param, HashSet<string> columns = default, string isn = null, TimeSpan? timeout = null)
+```
+Կից ներկայացված է մեթոդի պարամետրերի նկարագրությունը՝
+| Անվանում | Տեսակ | **Նկարագրություն** |
+| --- | --- | --- |
+| param | P | Տվյալների աղբյուրի  պարամետրեր|
+| columns | HashSet<string> | Տվյալների աղբյուրի սյուների անվանումների ցուցակ |
+| isn | string | Այն սյունակի ներքին անունը, որում լինում է փաստաթղթի ներքին նույնականացման համար |
+| timeout | TimeSpan? | timeout |
+
+* Տվյալների աղբյուրը երկար եղանակով կատարելու համար անհրաժեշտ է DataSource<R,P> դասի instance-ի Execute մեթոդը,որին պարտադիր է փոխանցել տվյալների աղբյուրի պարամետրերը։
+``` C#
+dsResult = ds.LongExecute(parameters);
+```
+Մեթոդը ունի հետևյալ signature-ը՝
+
+``` C#
+LongExecute(P param, HashSet<string> columns = default, string isn = null, bool handleEvents = false, TimeSpan? timeout = null)
+```
+Կից ներկայացված է մեթոդի պարամետրերի նկարագրությունը՝
+| Անվանում | Տեսակ | **Նկարագրություն** |
+| --- | --- | --- |
+| param | P | Տվյալների աղբյուրի  պարամետրեր|
+| columns | HashSet<string> | Տվյալների աղբյուրի սյուների անվանումների ցուցակ |
+| isn | string | Այն սյունակի ներքին անունը, որում լինում է փաստաթղթի ներքին նույնականացման համար |
+| timeout | TimeSpan? | timeout |
+
