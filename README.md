@@ -1,2 +1,1 @@
-# 8x-Documentation
-Documentation for new released AS-8X ecosystem.
+# AS-8X ծրագրավորողի ձեռնարկ
