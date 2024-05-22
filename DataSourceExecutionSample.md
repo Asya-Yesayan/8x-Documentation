@@ -51,7 +51,7 @@ Execute(P param, HashSet<string> columns = default, string isn = null, TimeSpan?
 | Անվանում | Տեսակ | **Նկարագրություն** |
 | --- | --- | --- |
 | param | P | Տվյալների աղբյուրի  պարամետրեր|
-| columns | HashSet<string> | Տվյալների աղբյուրի սյուների անվանումների ցուցակ |
+| columns | Hashset&lt;string&gt; | Տվյալների աղբյուրի սյուների անվանումների ցուցակ |
 | isn | string | Այն սյունակի ներքին անունը, որում լինում է փաստաթղթի ներքին նույնականացման համար |
 | timeout | TimeSpan? | timeout |
 
@@ -68,7 +68,7 @@ LongExecute(P param, HashSet<string> columns = default, string isn = null, bool 
 | Անվանում | Տեսակ | **Նկարագրություն** |
 | --- | --- | --- |
 | param | P | Տվյալների աղբյուրի  պարամետրեր|
-| columns | HashSet<string> | Տվյալների աղբյուրի սյուների անվանումների ցուցակ |
+| columns | Hashset&lt;string&gt; | Տվյալների աղբյուրի սյուների անվանումների ցուցակ |
 | isn | string | Այն սյունակի ներքին անունը, որում լինում է փաստաթղթի ներքին նույնականացման համար |
 | timeout | TimeSpan? | timeout |
 
