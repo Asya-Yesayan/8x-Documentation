@@ -7,7 +7,6 @@ var dsDefinition = Settings.ServiceProvider.GetRequiredService<DefinitionsCache>
 ```
 
 * Հետո անհրաժեշտ է ստեղծել տվյալների աղբյուրի պարամետրերը նկարագրող դասի օբյեկտ, որի Definition հատկությանը անհրաժեշտ է փոխանցել տվյալների աղբյուրի նկարագրության Parameters դաշտը ու պարամետրերին էլ փոխանցել համապատասխան արժեքները։
-
 ``` C#
 var parameters = new SysDefParameters
             {
@@ -15,6 +14,39 @@ var parameters = new SysDefParameters
                 DefType = "0"
             };
 ```
+  
+  * Տվյալների աղբյուրի պարամետրերի նկարագրման 2 եղանակ կա՝ տիպիզացված և չպիտիզացված։
+Չտիպիզացված ձևով նկարագրելու համար անհրաժեշտ է ստեղծել  ParameterCollection դասի օբյեկտ, որի Definition հատկությանը անհրաժեշտ է փոխանցել տվյալների աղբյուրի նկարագրության։
+Իսկ պարամետրերին արժեքները տալու համար անհրաժեշտ է պարամետրի անունով ինդեքսատորը վերագրել համապատասխան արժեքը։Արժեքը կարող է լինել կամայական տիպի՝ object:
+  Parameters
+``` C#
+var parameters = new ParameterCollection() { Definition = dsDefinition.Parameters };
+parameters["DefType"] = 1;
+parameters["DefName"] = "Absence";
+```
+
+Տիպիզացված ձևով նկարագրելու համար անհրաժեշտ է սահմանել դաս որը ժառանգում է ParameterCollection դասը։
+Այդ դասում որպես հատկություններ սահմանել տվյալների աղբյուրի պարամետրերը։ Հատկությունները պետք է սահմանել հատուկ կառուցվածքով՝
+* get-ում անհրաժեշտ է վերադարձնել պարամետրի արժեքը, որը անելու համար անհրաժեշտ է base դասի indexer ին տալ պարամետրի անվանումը ու այդ արժեքը բերել հատկության արժեքի տիպի։
+* set-ում պարամետրին արժեքը վերագրելու համար անհրաժեշտ է base դասի indexer ին տալ պարամետրի անվանումը ու նրան վերագրել պարամետրի արժեքը։
+
+```C#
+    public class SysDefParameters : ParameterCollection
+    {
+        public string DefType
+        {
+            get { return base[nameof(this.DefType)].ToString(); }
+            set { base[nameof(this.DefType)] = value; }
+        }
+
+        public string DefName
+        {
+            get { return base[nameof(this.DefName)].ToString(); }
+            set { base[nameof(this.DefName)] = value; }
+        }
+    }
+```
+Ուրիշ տիպի պարամետեր սահմանելու համար անհրաժեշտ է string-ի փոխարեն գրել պարամետրի համապատսխան տիպը, get-ում ToString()-ը փոխարինել համապատսխան տիպի բերումով ու պարամետրի անունը փոխարինել ձեր պարամետրի անունով։
 
 * Հետո ստեղծում ենք DataSource դասի օբյեկտ` DataSource<R,P>, որտեղ որպես R փոխանցում ենք տվյալների աղբյուրի սյունակները նկարագրող դասը, որպես P փոխանցում ենք տվյալների աղբյուրի պարամետրերը նկարագրող դասը։
 
