@@ -10,6 +10,6 @@
 
 
 Տվյալների աղբյուրը կատարելու և տվյալները ստանալու համար առաջարկում ենք հետևյալ տարբերակները՝
-- Օգտագործել DS-ի API-Ի կանչերը։ Կանչը կարող ենք կազմակերպել օգտագործելով API թեստավորման համար նախատեսված գործիքները(Postman, Swagger, Insomnia, Apidog, ...): Կից ներկայացված է կատարման եղանակը [Postman-ի միջավայրում](https://documenter.getpostman.com/view/33237126/2sA3QpCZCp)։
-- Օգտագործելով ArmSoft.AS8X.Client գրադարանը։ [Տես կցված օրինակը](DataSourceExecutionSample.md)։
+- Օգտագործել DS-ի API-ի կանչերը։ Կանչը կարող ենք կազմակերպել օգտագործելով API թեստավորման համար նախատեսված գործիքները(Postman, Swagger, Insomnia, Apidog, ...): Կից ներկայացված է կատարման եղանակը [Postman-ի միջավայրում](https://documenter.getpostman.com/view/33237126/2sA3QpCZCp)։
+- Օգտագործել ArmSoft.AS8X.Client գրադարանը։ [Տես կցված օրինակը](DataSourceExecutionSample.md)։
 
