@@ -24,9 +24,10 @@
  - .tt ընդլայնմամբ ֆայլի հետ միասին ստեղծվում է նույն անունով .txt ընդլայնմամբ ֆայլ։ Այն անհրաժեշտ է հեռացնել։
  - Ստեղծված ֆայլի հատկությունների Custom tool դաշտի արժեքը դնել TextTemplatingFileGenerator. right click on file -> Properties -> Custom tool = TextTemplatingFileGenerator:
  - Մաքրել ֆայլի default պարունակությունը։
- - ֆայլում ավելացնել հետևյալ տեքստը՝ 
-```
-	<#@ template debug="false" hostspecific="true" language="C#" #>
+ - ֆայլում ավելացնել հետևյալ տեքստը՝
+   
+```xml
+<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ assembly name="ArmSoft.AS8X.CodeGen" #>
 <#@ import namespace="ArmSoft.AS8X.CodeGen" #>
 <#@ output extension=".cs" #>
@@ -215,6 +216,7 @@ DocParser static դասի ParseClientAllմեթոդը ունի հետևյալ շ�
 
 
 Լրացման օրինակ՝ 
+```c#
 <#    
     string code = DocParser.ParseClientAll(configFilePath : this.Host.ResolvePath("..\\..\\..\\..\\..\\Enterprise\\AS-8X\\ArmSoft.AS8X.Enterprise\\CodeGen.xml"),
 	                                    filename : "\\SYSTEM\\EnterpriseCommon\\Approvals\\ApprStages.as",
@@ -225,7 +227,7 @@ DocParser static դասի ParseClientAllմեթոդը ունի հետևյալ շ�
    
 #>
 <#= code #>
-
+```
 
 ParseClientAll մեթոդի պարամետրերն են՝
 
