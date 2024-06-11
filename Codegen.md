@@ -25,23 +25,14 @@
  - Ստեղծել .tt ընդլայնմամբ ֆայլ հետևյալ ձևով՝ ՝ Add -> New Item -> Text Template։ Նախընտրելի  է ֆայլի անունը դնել հետևյալ ֆորմատի՝ GeneratedDSClassName.Codegen.tt, որպեսզի պարզ դառնա որ այն գեներացվել է CodeGen գործիքով։
  - Հեռացնել .tt ընդլայնմամբ ֆայլի հետ միասին ստեղծվող .txt ընդլայնմամբ ֆայլը ։
  - Ստեղծված ֆայլի հատկությունների Custom tool դաշտի արժեքը դնել TextTemplatingFileGenerator հետևյալ ձևով՝ right click on file -> Properties -> Custom tool = TextTemplatingFileGenerator:
- - Մաքրել ֆայլի default պարունակությունը։
- - ֆայլում ավելացնել հետևյալ տեքստը՝
-   
+ - Մաքրել ֆայլի default պարունակությունը և ավելացնել հետևյալ տեքստը՝
+  
 ```txt
 <#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ assembly name="ArmSoft.AS8X.CodeGen" #>
 <#@ import namespace="ArmSoft.AS8X.CodeGen" #>
 <#@ output extension=".cs" #>
 ```
-
- Այս տեքստը պարունակում է .tt ընդլայնմամբ ֆայլի կարգավորումները`
-- <#@ template debug="false" - նշվում է .tt ընդլայնմամբ ֆայլը ունի debug ռեժիմ թե ոչ
-- hostspecific="true" - Ցույց է տալիս որ ֆայլի վարքագիծը կարող է կախված լինել hosting enviroment- ից
-- language="C#" - ֆայլի մեջ գրվող կոդի լեզուն։ Այս դեպքում c#-ն է։
-- <#@ assembly name="ArmSoft.AS8X.CodeGen" #> - նշում ենք այն արտաքին assembly-ին(assembly-ին reference-ով կպցված է .tt ընդլայնմամբ ֆայլի գտնվելու assembly-ին), որի ֆունկցիոնալությունը մեզ անհրաժեշտ է ֆայլում։
-- <#@ import namespace="ArmSoft.AS8X.CodeGen" #> - import է անում ArmSoft.AS8X.CodeGen գրադարանը։ Կարելի է import անել միայն այն գրադարնները, որնց համապատասխան assembly-ին reference-ով կպցված է .tt ընդլայնմամբ ֆայլի գտնվելու assembly-ին։
-- <#@ output extension=".cs" #> - ցույց է տալիս գեներացվող ֆայլի ընդլանման տեսակը, այս դեպքում է գեներացվելու է .cs ընդլայնմամբ ֆայլ՝ c# class:
 
 ## Տվյալների աղբյուրի նկարագրությունը տեղափոխելու համար անհրաժեշտ քայլեր
 
