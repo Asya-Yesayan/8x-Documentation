@@ -28,7 +28,7 @@
  - Մաքրել ֆայլի default պարունակությունը։
  - ֆայլում ավելացնել հետևյալ տեքստը՝
    
-```xml
+```txt
 <#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ assembly name="ArmSoft.AS8X.CodeGen" #>
 <#@ import namespace="ArmSoft.AS8X.CodeGen" #>
@@ -53,7 +53,7 @@ DSParser static դասի Parse մեթոդը ունի հետևյալ շարահյ
         public static string Parse(string configFilePath, string filename, string dsName, string namespaceName,
                                    string className = "", bool generatePublicConstructor = false, string conditionalCompilationList = "")
 ```
-Լրացման օրինակ՝ 
+Օրինակ՝ 
 ```c#
 <#
     string code = DSParser.Parse(this.Host.ResolvePath("..\\..\\..\\CodeGen.xml"), "SOURCE\\ACCBAL\\ACCBAL.AS", "AccCli", "Bank.General.AccBal.DS","AccountsAndClients");
@@ -89,7 +89,7 @@ DocParser static դասի Parse մեթոդը ունի հետևյալ շարահ�
                                    string conditionalCompilationList = "", DocGeneratorOptions options = null, string parentClass = "",
                                    bool generateFieldAccessor = false, bool uppercaseAll = false)
 ```
-Լրացման օրինակ՝ 
+Օրինակ՝ 
 ``` c#
 <#
 string code = DocParser.Parse(configFilePath:this.Host.ResolvePath("..\\..\\..\\..\\..\\Enterprise\\AS-8X\\ArmSoft.AS8X.Enterprise\\CodeGen.xml"),
@@ -134,7 +134,7 @@ DocParser static դասի ParseAll մեթոդը ունի հետևյալ շարա
 ```
 
 
-Լրացման օրինակ՝ 
+Օրինակ՝ 
 ``` c#
 <#    
     string code = DocParser.ParseAll(configFilePath : this.Host.ResolvePath("..\\..\\..\\..\\..\\Enterprise\\AS-8X\\ArmSoft.AS8X.Enterprise\\CodeGen.xml"),
@@ -176,7 +176,7 @@ DocParser static դասի ParseClient մեթոդը ունի հետևյալ շա�
                                          string conditionalCompilationList = "", DocGeneratorOptions options = null, string parentClass = "")
 
 
-Լրացման օրինակ՝ 
+Օրինակ՝ 
 <#    
     string code = DocParser.ParseClient(configFilePath : this.Host.ResolvePath("..\\..\\..\\..\\..\\Enterprise\\AS-8X\\ArmSoft.AS8X.Enterprise\\CodeGen.xml"),
 	                                    filename : "\\SYSTEM\\EnterpriseCommon\\Approvals\\ApprStages.as",
@@ -217,7 +217,7 @@ DocParser static դասի ParseClientAllմեթոդը ունի հետևյալ շ�
 
 
 
-Լրացման օրինակ՝ 
+Օրինակ՝ 
 ```c#
 <#    
     string code = DocParser.ParseClientAll(configFilePath : this.Host.ResolvePath("..\\..\\..\\..\\..\\Enterprise\\AS-8X\\ArmSoft.AS8X.Enterprise\\CodeGen.xml"),
