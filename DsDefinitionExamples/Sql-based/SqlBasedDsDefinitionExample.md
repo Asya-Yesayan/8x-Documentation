@@ -57,7 +57,6 @@ Schema դասի կոնստրուկտորը ունի հետևյալ շարահյ�
 | paramType | Type | Տվյալների աղբյուրի պարամետրերը նկարագրող դասի տիպը| 
 | supportedExtendedFeatures | bool | Ցույց է տալիս թե տվյալների աղբյուրը կարող է պարունակել Unicode կոդավորմամբ սյուներ թե ոչ։ Այս հատկությամբ տվյալների աղբյուրի օգտագործումը արգելվում է 4X-ից։ Լռությամբ արժեքը false է։| 
 
-Լրացման օրինակ՝
 ```c#
 this.Schema = new Schema(this.Name, ConstantsArmenian.ParamLog.ToArmenianANSICached(), ConstantsEnglish.ParamLog, typeof(DataRow), typeof(Param));
 ```
@@ -92,7 +91,6 @@ this.Schema = new Schema(this.Name, ConstantsArmenian.ParamLog.ToArmenianANSICac
 | mayNotExistInSQL | bool | sql-based տվյալների աղբյուրի sql հարցման մեջ տվյալ սյան արժեքների լրացման համար նախատեսված սյան վերադարձը պարտադիր է թե ոչ։ Սյան արժեքների լրացման համար անհրաժեշտ sql-ական սյան անվանումը նշվում է source դաշտում։| false |
 | supportedEncoding | SupportedEncoding | Սյան կոդավորման տեսակը։ Լռությամբ արժեքը false է։ SupportedEncoding-ը կարող է լինել երեք տեսակի՝ ArmenianAnsi, RussionAnsi և Unicode, լռելյան ArmenianAnsi է։ Unicode արժեքի դեպքում անհրաժեշտ է սխեմայի SupportedExtendedFeatures հատկության արժեքը լինի true:| SupportedEncoding.ArmenianAnsi |
 
-Լրացման օրինակ՝
 ```c#
             this.Schema.AddColumn(nameof(DataRow.DocType), "DocType", ConstantsArmenian.DocType.ToArmenianANSICached(), ConstantsEnglish.DocType, FieldTypeProvider.GetStringFieldType(SYSDEF.DocNameLength));
 
@@ -121,7 +119,6 @@ this.Schema = new Schema(this.Name, ConstantsArmenian.ParamLog.ToArmenianANSICac
 | nullable | bool | Պարամետրը կարող է ընդունել null տիպի արժեք թե ոչ | false |
 | allowTime | bool | Եթե պարամետրի համակարգային տիպը ամսաթվային տիպի է(Date, DateLong, DateRep), ապա ամսաթվի հետ միասին լինի ժամանակը թե ոչ| false |
 
-Լրացման օրինակ՝
 ```c#
             this.Schema.AddParam(nameof(Param.DocType), ConstantsArmenian.DocType.ToArmenianANSICached(), FieldTypeProvider.GetStringFieldType(DSConstantsLength.DocCapDocType), eDescription: ConstantsEnglish.DocType);
 ```
@@ -157,7 +154,6 @@ MakeSQLCommand անհրաժեշտ է ունենալ [SqlCommand](https://learn.m
 Եթե տվյալների աղբյուրը պարունակում է պարամետրեր, ապա sql հարցման մեջ չի թույլատրվում միանգամից ավելացնել այդ պարամետրերը։
 Այդ պարամետրերը ավելացնելու համար անհրաժեշտ է @-ով ավելացնել պարամետրի անունը, հետո ստեղծված SqlCommand դասի օբյեկտի Parameters հատկությանը [Add](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlparametercollection.add?view=netframework-4.8.1#system-data-sqlclient-sqlparametercollection-add(system-string-system-data-sqldbtype)) մեթոդը կանչել, որտեղ պետք է փոխանցել պարամետրի անունը ու sql-ական տվյալի տիպը։
 
-Լրացման օրինակ՝
 ```c#
             if (!string.IsNullOrWhiteSpace(args.Parameters.DocType))
             {
