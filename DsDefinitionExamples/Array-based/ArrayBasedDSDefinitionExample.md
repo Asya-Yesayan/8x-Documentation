@@ -136,6 +136,14 @@ Schema դասի կոնստրուկտորը ունի հետևյալ շարահյ�
 
 Լրացման օրինակ՝
 ```c#
+        public override bool IsSQLBased
+        {
+            get
+            {
+                return false;
+            }
+        }
+
         protected override Task FillData(DataSourceArgs<Param> args, CancellationToken stoppingToken)
         {
             this.Rows.AddRange(
