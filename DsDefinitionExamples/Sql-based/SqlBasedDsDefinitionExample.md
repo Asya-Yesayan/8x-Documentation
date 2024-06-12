@@ -126,7 +126,7 @@ this.Schema = new Schema(this.Name, ConstantsArmenian.ParamLog.ToArmenianANSICac
 Տվյալների աղբյուրի ըստ տվյալների բեռնման աղբյուրի լինում է 2 տեսակի՝ sql-based և array-based:
 Տվյալների աղբյուրի տվյալների բեռնման տեսակը որոշվում է IsSQLBased boolean տիպի հատկության միջոցով, որի լռությամբ արժեքը true է։
 
-Եթե տվյալների աղբյուրը sql-based է(այսինքն տվյալների աղբյուրի տվյալները ստացվում են sql հարցման միջոցով), ապա sql հարցումը ձևավորելու համար անհրաժեշտ է override անել `Task<SqlCommand> MakeSQLCommand(DataSourceArgs<P> args, CancellationToken stoppingToken)` մեթոդը, որտեղ որպես P անհրաժեշտ է փոխանցել տվյալների աղբյուրի պարամետրերը նկարագրող դասը։
+Եթե տվյալների աղբյուրը `sql-based` է(տվյալների աղբյուրի տվյալները ստացվում են sql հարցման միջոցով), ապա sql հարցումը ձևավորելու համար անհրաժեշտ է override անել `Task<SqlCommand> MakeSQLCommand(DataSourceArgs<P> args, CancellationToken stoppingToken)` մեթոդը՝ որպես P փոխանցելով տվյալների աղբյուրի պարամետրերը նկարագրող դասը։
 
 ```c#
         protected override Task<SqlCommand> MakeSQLCommand(DataSourceArgs<Param> args, CancellationToken stoppingToken)
@@ -146,9 +146,9 @@ this.Schema = new Schema(this.Name, ConstantsArmenian.ParamLog.ToArmenianANSICac
             return Task.FromResult(cmd);
         }
 ```
-MakeSQLCommand անհրաժեշտ է ունենալ [SqlCommand](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand?view=netframework-4.8.1) դասի օբյեկտ, որի մեջ կլրացվի հարցումը։
+MakeSQLCommand-ում անհրաժեշտ է ունենալ [SqlCommand](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand?view=netframework-4.8.1) դասի օբյեկտ, որի մեջ կլրացվի հարցումը։
 
-Դա կարելի է անել IDBService դասի Connection հատկության [CreateCommand](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlconnection.createcommand?view=netframework-4.8.1&viewFallbackFrom=dotnet-plat-ext-8.0) մեթոդի միջոցով, որը ընթացիկ sql connection-ի համար բացում է [SqlCommand](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand?view=netframework-4.8.1),որում էլ ձևավորվելու է sql հարցումը։
+Դա կարելի է անել IDBService դասի Connection հատկության [CreateCommand](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlconnection.createcommand?view=netframework-4.8.1&viewFallbackFrom=dotnet-plat-ext-8.0) մեթոդի միջոցով, որը ընթացիկ sql connection-ի համար բացում է [SqlCommand](https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand?view=netframework-4.8.1)sql հարցումը ձևավորվելու է համար։
 
 Հետո ստեղծված SqlCommand դասի օբյեկտի CommandText հատկությանը հարկավոր է փոխանցել հարցման տեքստը։
 Եթե տվյալների աղբյուրը պարունակում է պարամետրեր, ապա sql հարցման մեջ չի թույլատրվում միանգամից ավելացնել այդ պարամետրերը։
