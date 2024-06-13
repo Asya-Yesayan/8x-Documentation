@@ -24,6 +24,10 @@
 
  - Ստեղծել .tt ընդլայնմամբ ֆայլ հետևյալ ձևով՝ Add -> New Item -> Text Template։ Նախընտրելի  է ֆայլի անունը դնել հետևյալ ֆորմատի՝ GeneratedDSClassName.Codegen.tt՝ նկարագրության սկրիպտային բաժինը և նկարագրման բաժինը նկարագրող դասերի [ներդրվածությունը](https://learn.microsoft.com/en-us/visualstudio/ide/file-nesting-solution-explorer?view=vs-2022) ապահովելու համար։
 
+<p align="center">
+  <img src="Images/Nested_classes.png" />
+</p>
+
  - Հեռացնել .tt ընդլայնմամբ ֆայլի հետ միասին ստեղծված .txt ընդլայնմամբ ֆայլը ։
  - Ստեղծված ֆայլի հատկությունների Custom tool դաշտի արժեքը դնել TextTemplatingFileGenerator հետևյալ ձևով՝ right click on file -> Properties -> Custom tool = TextTemplatingFileGenerator:
  - Մաքրել ֆայլի default պարունակությունը և ավելացնել հետևյալ տեքստը՝
