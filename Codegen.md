@@ -29,7 +29,10 @@
 </p>
 
  - Հեռացնել .tt ընդլայնմամբ ֆայլի հետ միասին ստեղծված .txt ընդլայնմամբ ֆայլը ։
- - Ստեղծված ֆայլի հատկությունների Custom tool դաշտի արժեքը դնել TextTemplatingFileGenerator հետևյալ ձևով՝ right click on file -> Properties -> Custom tool = TextTemplatingFileGenerator:
+ - Ստեղծված ֆայլի հատկությունների Custom tool դաշտի արժեքը դնել TextTemplatingFileGenerator հետևյալ ձևով՝ Right-click the file → Properties → Custom Tool: TextTemplatingFileGenerator:
+<p align="center">
+  <img src="Images/Nested_classes.png" />
+</p>
  - Մաքրել ֆայլի default պարունակությունը և ավելացնել հետևյալ տեքստը՝
   
 ```txt
