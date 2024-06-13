@@ -22,7 +22,8 @@
 
 ## Նկարագրությունը տեղափոխելու համար անհրաժեշտ ընդհանուր քայլեր
 
- - Ստեղծել .tt ընդլայնմամբ ֆայլ հետևյալ ձևով՝ ՝ Add -> New Item -> Text Template։ Նախընտրելի  է ֆայլի անունը դնել հետևյալ ֆորմատի՝ GeneratedDSClassName.Codegen.tt, որպեսզի ապահովենք նկարագրության սկրպտային բաժինը և նկարագրման բաժինը նկարագրող դասերի ներդրվածությունը։
+ - Ստեղծել .tt ընդլայնմամբ ֆայլ հետևյալ ձևով՝ Add -> New Item -> Text Template։ Նախընտրելի  է ֆայլի անունը դնել հետևյալ ֆորմատի՝ GeneratedDSClassName.Codegen.tt, որպեսզի ապահովենք նկարագրության սկրպտային բաժինը և նկարագրման բաժինը նկարագրող դասերի [ներդրվածությունը](https://learn.microsoft.com/en-us/visualstudio/ide/file-nesting-solution-explorer?view=vs-2022)։
+
  - Հեռացնել .tt ընդլայնմամբ ֆայլի հետ միասին ստեղծվող .txt ընդլայնմամբ ֆայլը ։
  - Ստեղծված ֆայլի հատկությունների Custom tool դաշտի արժեքը դնել TextTemplatingFileGenerator հետևյալ ձևով՝ right click on file -> Properties -> Custom tool = TextTemplatingFileGenerator:
  - Մաքրել ֆայլի default պարունակությունը և ավելացնել հետևյալ տեքստը՝
