@@ -56,7 +56,11 @@ DSParser static դասի Parse մեթոդը ունի հետևյալ շարահյ
 Օրինակ՝ 
 ```c#
 <#
-	string code = DSParser.Parse(this.Host.ResolvePath("..\\..\\CodeGen.xml"), "\\PAYMENT\\DOC\\PaySys.as", "OBACSOPT", "Bank.BankSettings.DS", "AllowableForbiddenAccessTypes");
+	string code = DSParser.Parse(this.Host.ResolvePath("..\\..\\CodeGen.xml"),
+                                     "\\PAYMENT\\DOC\\PaySys.as",
+                                     "OBACSOPT",
+				     "Bank.BankSettings.DS",
+				     "AllowableForbiddenAccessTypes");
 #>
 <#= code #>
 ```
@@ -93,7 +97,11 @@ DocParser static դասի Parse մեթոդը ունի հետևյալ շարահ�
 Օրինակ՝ 
 ``` c#
 <#
-string code = DocParser.Parse(this.Host.ResolvePath("..\\..\\CodeGen.xml"), "\\SOURCE\\Agreement\\Contracts.as", "CnCont", "Enterprise.Doc.Agreement","Contract");
+string code = DocParser.Parse(this.Host.ResolvePath("..\\..\\CodeGen.xml"),
+                              "\\SOURCE\\Agreement\\Contracts.as",
+                              "CnCont",
+                              "Enterprise.Doc.Agreement",
+			      "Contract");
 #>
 <#= code #>
 ```
@@ -133,7 +141,7 @@ DocParser static դասի ParseAll մեթոդը ունի հետևյալ շարա
 <#
 string code = DocParser.ParseAll(this.Host.ResolvePath("..\\..\\CodeGen.xml"),
 				"\\SOURCE\\Agreement\\Contracts.as",
-				"Enterprise.Doc.Agreement","Contract")",
+				"Enterprise.Doc.Agreement",
 				conditionalCompilationList:"EnterpriseClient, WagesClient");
 #>
 <#= code #>
@@ -168,14 +176,11 @@ DocParser static դասի ParseClient մեթոդը ունի հետևյալ շա�
 
 Օրինակ՝ 
 <#    
-    string code = DocParser.ParseClient(configFilePath : this.Host.ResolvePath("..\\..\\..\\..\\..\\Enterprise\\AS-8X\\ArmSoft.AS8X.Enterprise\\CodeGen.xml"),
-	                                    filename : "\\SYSTEM\\EnterpriseCommon\\Approvals\\ApprStages.as",
-		                                docType : "AppStCmp",
-		                                namespaceName : "Client.Documents.System.ApprCompoundStage",
-                                        conditionalCompilationList:"EnterpriseClient, WagesClient",
-		                                className : "ApprCompoundStage");
-
-   
+string code = DocParser.ParseClient(this.Host.ResolvePath("..\\..\\CodeGen.xml"),
+                              	   "\\SOURCE\\Agreement\\Contracts.as",
+                                   "CnCont",
+                                   "Enterprise.Client.Doc.Agreement",
+			           "Contract");   
 #>
 <#= code #>
 
@@ -207,14 +212,10 @@ DocParser static դասի ParseClientAllմեթոդը ունի հետևյալ շ�
 
 Օրինակ՝ 
 ```c#
-<#    
-    string code = DocParser.ParseClientAll(configFilePath : this.Host.ResolvePath("..\\..\\..\\..\\..\\Enterprise\\AS-8X\\ArmSoft.AS8X.Enterprise\\CodeGen.xml"),
-	                                    filename : "\\SYSTEM\\EnterpriseCommon\\Approvals\\ApprStages.as",
-		                                namespaceName : "Client.Documents.System.ApprCompoundStage",
-                                        conditionalCompilationList:"EnterpriseClient, WagesClient",
-		                                className : "ApprCompoundStage");
-
-   
+<#
+string code = DocParser.ParseClientAll(this.Host.ResolvePath("..\\..\\CodeGen.xml"),
+				       "\\SOURCE\\Agreement\\Contracts.as",
+                                       "Enterprise.Client.Doc.Agreement");    
 #>
 <#= code #>
 ```
