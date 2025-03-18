@@ -14,4 +14,6 @@ group :jekyll_plugins do
   gem "jekyll-copy-code"
 end
 
+gem 'jekyll-code-block-copy'
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

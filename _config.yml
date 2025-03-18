@@ -27,6 +27,7 @@ plugins:
   - jekyll-html-pipeline
   - jekyll-docify
   - jekyll-copy-code
+  - jekyll-code-block-copy
 exclude:
   - Gemfile
   - Gemfile.lock
