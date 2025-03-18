@@ -1,0 +1,36 @@
+# Config settings
+title: AS-8X API Documentation
+baseurl: "/as8x-docs"
+
+# Search settings
+tipue_search:
+  include:
+    pages: true
+  exclude:
+    files: [index.md, search.html]
+
+# Build settings
+markdown: kramdown
+
+kramdown:
+  # Enable GitHub Flavored Markdown (fenced code blocks)
+  input: GFM
+  # Enable/Disable auto-generated ID's for headings
+  auto_ids: true
+
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-optional-front-matter
+  - jekyll-relative-links
+  - jekyll-html-pipeline
+  - jekyll-docify
+  - jekyll-copy-code
+exclude:
+  - Gemfile
+  - Gemfile.lock
+
+header_pages:
+ - search.html
+ - apiIndex.html
