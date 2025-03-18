@@ -1,49 +1,56 @@
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll("pre").forEach((pre) => {
-        const button = document.createElement("button");
-        button.className = "copy-btn";
-        button.innerText = "Copy";
-  
-        button.addEventListener("click", () => {
-          const code = pre.querySelector("code");
-          if (!code) return;
-  
-          navigator.clipboard.writeText(code.innerText).then(() => {
-            button.innerText = "Copied!";
-            setTimeout(() => (button.innerText = "Copy"), 2000);
-          });
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("pre").forEach((pre) => {
+      const button = document.createElement("button");
+      button.className = "copy-btn";
+      button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+
+      button.addEventListener("click", () => {
+        const code = pre.querySelector("code");
+        if (!code) return;
+
+        navigator.clipboard.writeText(code.innerText).then(() => {
+          button.classList.add("copied");
+          setTimeout(() => button.classList.remove("copied"), 2000);
         });
-  
-        const wrapper = document.createElement("div");
-        wrapper.className = "code-container";
-        pre.replaceWith(wrapper);
-        wrapper.appendChild(pre);
-        wrapper.appendChild(button);
       });
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "code-container";
+      pre.replaceWith(wrapper);
+      wrapper.appendChild(pre);
+      wrapper.appendChild(button);
     });
-  </script>
-  
-  <style>
-    .code-container {
-      position: relative;
-    }
-  
-    .copy-btn {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      background: #333;
-      color: white;
-      border: none;
-      padding: 5px;
-      font-size: 12px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-  
-    .copy-btn:hover {
-      background: #555;
-    }
-  </style>
-  
+  });
+</script>
+
+<style>
+  .code-container {
+    position: relative;
+  }
+
+  .copy-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .copy-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: #aaa;
+    transition: stroke 0.2s;
+  }
+
+  .copy-btn:hover svg {
+    stroke: #333;
+  }
+
+  .copy-btn.copied svg {
+    stroke: #4caf50;
+  }
+</style>
