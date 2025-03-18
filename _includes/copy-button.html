@@ -5,7 +5,7 @@
       button.className = "copy-btn";
       button.innerHTML = `
         <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-        <span class="copy-text"></span>
+        <span class="copy-text">Copy</span>
       `;
 
       button.addEventListener("click", () => {
@@ -22,7 +22,7 @@
           setTimeout(() => {
             button.innerHTML = `
               <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              <span class="copy-text"></span>
+              <span class="copy-text">Copy</span>
             `;
             button.classList.remove("copied");
           }, 2000);
@@ -47,31 +47,27 @@
     position: absolute;
     top: 5px;
     right: 5px;
-    background: transparent;
+    background: #f5f5f5;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 14px;
-    color: #aaa;
-    transition: color 0.2s;
-    padding: 5px;
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: background 0.2s;
   }
 
   .copy-btn:hover {
-    color: #333;
+    background: #e0e0e0;
   }
 
   .copy-btn .copy-icon {
-    width: 18px;
-    height: 18px;
-    stroke: #aaa;
-    transition: stroke 0.2s;
-  }
-
-  .copy-btn:hover .copy-icon {
+    width: 16px;
+    height: 16px;
     stroke: #333;
+    transition: stroke 0.2s;
   }
 
   .copy-btn .checkmark {
@@ -79,9 +75,17 @@
     color: #4caf50;
   }
 
-  .copy-text {
-    font-size: 12px;
-    color: #4caf50;
+  .copy-btn .copy-text {
+    font-size: 14px;
+    color: #333;
     font-weight: bold;
+  }
+
+  .copy-btn.copied .copy-text {
+    color: #4caf50;
+  }
+
+  .copy-btn.copied .checkmark {
+    color: #4caf50;
   }
 </style>
